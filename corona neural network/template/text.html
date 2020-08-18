@@ -1,0 +1,232 @@
+<html>
+<head> 
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    ul {
+      position: relative;
+      list-style-type: none;
+      margin: 0;
+      margin-top:-50%;
+      padding: 0;
+      overflow: hidden;
+      background-color: #f1f1f1;
+    }
+    
+    li {
+      float: left;
+      border-right:1px solid #ccc;
+    }
+    
+    li:last-child {
+      border-right: none;
+    }
+    
+    li a {
+      display: block;
+      color: black;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    
+    li a:hover:not(.active) {
+      background-color: #f1f1f1;
+    }
+    
+    .active {
+      background-color: #ccc;
+    }
+    body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.topnav a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ccc;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #ccc;
+  color: black;
+}
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn {
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.custom-file-input input[type=file] {
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+[type="file"] {
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  height:50px;
+    width:300px;
+}
+
+
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+
+ </style>
+</head>
+<body>
+  <div class="topnav">
+    <a  href="http://127.0.0.1:5000">Home</a>
+    <a class="active" href="http://127.0.0.1:5000/upload">Test</a>
+    <a href="http://127.0.0.1:5000/pred">Predictions</a>
+  </div>
+    
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Corona Test</h1>
+      <hr>
+      <form action="http://localhost:5000/uploader" method="POST" enctype="multipart/form-data">
+       
+        <div class="w3-row-padding w3-margin-bottom">
+          <div class="w3-row-padding w3-margin-bottom">
+            <div class="w3-quarter">
+              <div class="w3-container w3-red w3-padding-16">
+                <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
+                <div class="w3-right">
+                  <h3></h3>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Upload X-ray Image For testing</h4>
+              </div>
+              <input type="file" class="custom-file-input" name="image" id="image">
+            </div>
+            <div class="w3-quarter">
+              <div class="w3-container w3-blue w3-padding-16">
+                <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+                <div class="w3-right">
+                  <h3></h3>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Submit Image</h4>
+              </div>
+              
+              <button type="submit" onclick="fetch()" class="btn btn-primary">Confirm and show results</button>
+      </form>
+            </div>
+            
+            <div class="w3-panel">
+              <div class="w3-row-padding" style="margin:0 -16px">
+                <div class="w3-third">
+                  <h5>Regions</h5>
+                  <img src="{{url_for('static',filename='unknown-600x310.png')}}">
+                  
+                </div>
+                <div class="w3-twothird">
+                  <h5>Feeds</h5>
+                  <table class="w3-table w3-striped w3-white">
+                    <tr>
+                      <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
+                      <td>New record, over 90 views.</td>
+                      <td><i>10 mins</i></td>
+                    </tr>
+                    <tr>
+                      <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
+                      <td>Database error.</td>
+                      <td><i>15 mins</i></td>
+                    </tr>
+                    <tr>
+                      <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
+                      <td>New record, over 40 users.</td>
+                      <td><i>17 mins</i></td>
+                    </tr>
+                    <tr>
+                      <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
+                      <td>New comments.</td>
+                      <td><i>25 mins</i></td>
+                    </tr>
+                    <tr>
+                      <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
+                      <td>Check transactions.</td>
+                      <td><i>28 mins</i></td>
+                    </tr>
+                    <tr>
+                      <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
+                      <td>CPU overload.</td>
+                      <td><i>35 mins</i></td>
+                    </tr>
+                    <tr>
+                      <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
+                      <td>New shares.</td>
+                      <td><i>39 mins</i></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <hr>
+                
+  
+      
+    
+    
+<script>
+  
+  
+
+  fetch($(windows.origin) + "/uploader",{
+    method: "POST",
+    credentials: "include",
+    body : JSON.stringify(entry),
+    cache : "no-cache",
+    headers : new Headers({
+      "content-type" : "application/json"
+    })
+  })
+  .then(function(response) {
+    response.json().then(function (data){
+      console.log(data)
+    })
+  })
+  
+</script>
+</body>
+</html>
+

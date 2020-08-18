@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+
+body {
+  background: white;
+  color: #555555;
+  font-size: 14px;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  width: 100%;
+  margin: 20px auto;
+  
+}
+
+.cards_wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cards_wrap .card_item {
+  width: 25%;
+  padding: 10px;
+}
+
+.cards_wrap .card_inner {
+  background: #ccc;
+}
+
+.cards_wrap .card_top {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  padding-bottom: 0;
+}
+
+.cards_wrap .card_bottom {
+  padding: 15px;
+}
+
+.cards_wrap .card_bottom .card_category {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.cards_wrap .card_bottom .card_info {
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px dashed #0071bc;
+}
+
+.cards_wrap .card_bottom .card_info .title {
+  color: #0071bc;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.cards_wrap .card_bottom .card_creator {
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .cards_wrap .card_item {
+    width: 33.3%;
+  }
+}
+
+@media (max-width: 768px) {
+  .cards_wrap .card_item {
+    width: 50%;
+  }
+}
+
+@media (max-width: 528px) {
+  .cards_wrap .card_item {
+    width: 100%;
+  }
+}
+.topnav {
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.topnav a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ccc;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #ccc;
+  color: black;
+}
+    </style>
+	<meta charset="UTF-8">
+	<title>Responsive Cards UI Design</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="topnav">
+        <a  href="http://127.0.0.1:5000">Home</a>
+        <a  href="http://127.0.0.1:5000/upload">Test</a>
+        <a class="active" href="http://127.0.0.1:5000/pred">Predictions</a>
+      </div>
+
+<div class="wrapper">
+  <div class="cards_wrap">
+    <div class="card_item">
+      <div class="card_inner">
+        <div class="card_top">
+          <img src="C:/Users/waelh/Downloads/corona/corona/xray/Coron.jpg" alt="" />
+        </div>
+        <div class="card_bottom">
+          <div class="card_category">
+            
+          </div>
+          <div class="card_info">
+            <p class="title">Confirmed</p>
+            <p>
+              Predicting how many confirmed cases there will be
+            </p>
+          </div>
+        </div>
+        <form action="http://localhost:5000/output/confirmed">
+            <input type="submit" value="confirmed" />
+        </form>
+          <div class="card_creator">
+           
+          </div>
+        </div>
+      </div>
+    
+    <div class="card_item">
+      <div class="card_inner">
+        <div class="card_top">
+          <img src="C:/Users/waelh/Downloads/corona/corona/xray/deaths.jpg" alt="" />
+        </div>
+        <div class="card_bottom">
+          <div class="card_category">
+            
+          </div>
+          <div class="card_info">
+            <p class="title">Death</p>
+            <p>
+              Predicting how many deaths there will be
+            </p>
+          </div>
+        </div>
+        <form action="http://localhost:5000/output/death">
+          <input type="submit" value="death" />
+        </form>
+          <div class="card_creator">
+          </div>
+        </div>
+        
+      </div>
+    
+    <div class="card_item">
+      <div class="card_inner">
+        <div class="card_top">
+          <img src="C:/Users/waelh/Downloads/corona/corona/xray/unnamed.jpg" alt="" />
+        </div>
+        <div class="card_bottom">
+          <div class="card_category">
+            
+          </div>
+          <div class="card_info">
+            <p class="title">Recovered</p>
+            <p>
+              Predicting how many recovered cases we will have
+            </p>
+          </div>
+        </div>
+        <form action="http://localhost:5000/output/recovered">
+          <input type="submit" value="recovered" />
+        </form> 
+          <div class="card_creator">
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+ </div>
+ </div>
+</div>
+</body>
+
+</body>
+</html>
